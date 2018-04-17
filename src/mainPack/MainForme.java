@@ -147,7 +147,10 @@ public class MainForme extends JFrame {
 		scrollPane.setBounds(41, 31, 611, 285);
 		getContentPane().add(scrollPane);
 		
+		//------------------------------ TABLE
 		table = new JTable();
+		//Table creation 
+		table.setModel(dataModel);
 		scrollPane.setViewportView(table);
 	}
 }
