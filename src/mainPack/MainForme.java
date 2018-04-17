@@ -91,7 +91,7 @@ public class MainForme extends JFrame {
 		setResizable(false);
 		getContentPane().setEnabled(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 693, 398);
+		setBounds(100, 100, 700, 500);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -144,7 +144,7 @@ public class MainForme extends JFrame {
 		getContentPane().setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(41, 31, 611, 285);
+		scrollPane.setBounds(6, 6, 688, 444);
 		getContentPane().add(scrollPane);
 		
 		//------------------------------ TABLE
