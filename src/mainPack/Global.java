@@ -27,16 +27,9 @@ public class Global
 									W_PROJET * studentList.get(i).projet + 
 									W_EXAMEFINAL * studentList.get(i).examenFinal;
 		
-		if (studentList.get(i).moyenne >= 60.0) 
-		{
-			studentList.get(i).status = "approuvé";
-		}
-		else 
-		{
-			studentList.get(i).status = "échec";
-		}
+		if (studentList.get(i).moyenne >= 60.0) {studentList.get(i).status = "approuvé";}
+		else {studentList.get(i).status = "échec";}
 	}
-	
 	
 	static ArrayList<Student> studentList = new ArrayList<Student>(MAX_LENGHT);
 	static int actual_lenght = 0;

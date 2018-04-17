@@ -5,6 +5,11 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JMenu;
 import javax.swing.JSeparator;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+import mainPack.Global.Student;
 
 public class MainForme extends JFrame {
 
@@ -28,11 +33,62 @@ public class MainForme extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private JTable table;
+	static MainForme current;
+	
+	class MyTableModel extends DefaultTableModel
+	{
+		//Columns Names
+		private String columnNames [] = {"ID","Pré-nom","Nom","Mi-session","Project","Examen Final","Moyenne","Status"};
+		//Constructor
+		public MyTableModel()
+		{
+			super();
+			this.setColumnCount(columnNames.length);
+			this.setColumnIdentifiers(columnNames);
+			this.setRowCount(0);
+		}
+		//
+		public void setList(Student [] list, int actual_length)
+		{
+			this.setRowCount(0);
+			for(int i = 0; i < actual_length; i++)
+			{
+				Object [] ligne = new Object [columnNames.length];
+				ligne[0] = list[i].id;
+				ligne[1] = list[i].prenom;
+				ligne[2] = list[i].nom;
+				ligne[3] = list[i].miSession;
+				ligne[4] = list[i].projet;
+				ligne[5] = list[i].examenFinal;
+				ligne[6] = list[i].moyenne;
+				ligne[7] = list[i].status;
+				this.addRow(ligne);
+			}
+		}
+		//
+		public Object [] getRow(int row)
+		{
+			Object [] ligne = new Object [columnNames.length];
+			ligne[0] = this.getValueAt(row, 0);
+			ligne[1] = this.getValueAt(row, 1);
+			ligne[2] = this.getValueAt(row, 2);
+			ligne[3] = this.getValueAt(row, 3);
+			ligne[4] = this.getValueAt(row, 4);
+			ligne[5] = this.getValueAt(row, 5);
+			ligne[6] = this.getValueAt(row, 6);
+			ligne[7] = this.getValueAt(row, 7);
+			return ligne;
+		}
+	}
+	
+	MyTableModel dataModel = new MyTableModel();
 
 	/**
 	 * Create the frame.
 	 */
 	public MainForme() {
+		setResizable(false);
 		getContentPane().setEnabled(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 693, 398);
@@ -86,5 +142,12 @@ public class MainForme extends JFrame {
 		mnAide.add(mntmPropos);
 		getContentPane().setLayout(null);
 		getContentPane().setLayout(null);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(41, 31, 611, 285);
+		getContentPane().add(scrollPane);
+		
+		table = new JTable();
+		scrollPane.setViewportView(table);
 	}
 }
