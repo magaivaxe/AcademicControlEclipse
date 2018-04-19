@@ -13,22 +13,7 @@ import mainPack.Global.Student;
 
 public class MainForme extends JFrame {
 
-	/**
-	 * Launch the application.
-	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					MainForm frame = new MainForm();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
-
+	
 	/**
 	 * 
 	 */
@@ -145,12 +130,13 @@ public class MainForme extends JFrame {
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(6, 6, 688, 444);
-		getContentPane().add(scrollPane);
 		
 		//------------------------------ TABLE
+		
 		table = new JTable();
 		//Table creation 
 		table.setModel(dataModel);
 		scrollPane.setViewportView(table);
+		getContentPane().add(scrollPane);
 	}
 }
