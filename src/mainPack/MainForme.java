@@ -10,6 +10,9 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import mainPack.Global.Student;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.awt.event.ActionEvent;
 
 public class MainForme extends JFrame {
 
@@ -34,20 +37,20 @@ public class MainForme extends JFrame {
 			this.setRowCount(0);
 		}
 		//
-		public void setList(Student [] list, int actual_length)
+		public void setList(ArrayList<Student> list, int actual_length)
 		{
 			this.setRowCount(0);
 			for(int i = 0; i < actual_length; i++)
 			{
 				Object [] ligne = new Object [columnNames.length];
-				ligne[0] = list[i].id;
-				ligne[1] = list[i].prenom;
-				ligne[2] = list[i].nom;
-				ligne[3] = list[i].miSession;
-				ligne[4] = list[i].projet;
-				ligne[5] = list[i].examenFinal;
-				ligne[6] = list[i].moyenne;
-				ligne[7] = list[i].status;
+				ligne[0] = list.get(i).id;
+				ligne[1] = list.get(i).prenom;
+				ligne[2] = list.get(i).nom;
+				ligne[3] = list.get(i).miSession;
+				ligne[4] = list.get(i).projet;
+				ligne[5] = list.get(i).examenFinal;
+				ligne[6] = list.get(i).moyenne;
+				ligne[7] = list.get(i).status;
 				this.addRow(ligne);
 			}
 		}
@@ -88,6 +91,14 @@ public class MainForme extends JFrame {
 		mnFichier.add(mntmNouveau);
 		
 		JMenuItem mntmOuvrir = new JMenuItem("Ouvrir");
+		mntmOuvrir.addActionListener(new ActionListener() 
+		{
+			//I stopped here
+			public void actionPerformed(ActionEvent e) 
+			{
+				
+			}
+		});
 		mnFichier.add(mntmOuvrir);
 		
 		JSeparator separator = new JSeparator();
